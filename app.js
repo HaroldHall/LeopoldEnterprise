@@ -5,8 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');  
 var mongoose = require('mongoose'); 
 var db_url = process.env.MONGODB_URL ||"mongodb+srv://haroldhall:Dobmay71997@cluster0.qbsvl.mongodb.net/Products?retryWrites=true&w=majority";
-mongoose.connect(db_url,{ useUnifiedTopology: true , 
-useNewUrlParser:true });
 var productRouter= require('./routes/products')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users'); 
@@ -14,8 +12,10 @@ const Port = process.env.PORT || 8080;
 const cors = require('cors'); 
 var app = express(); 
 var seed = require('./seed'); 
- 
-          
+mongoose.Promise = global.Promise;
+mongoose.connect(db_url,{ useUnifiedTopology: true , 
+  useNewUrlParser:true }).then(() => console.log(`Database connected`))
+  .catch(err => console.log(`Database connection error: ${err.message}`));        
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
