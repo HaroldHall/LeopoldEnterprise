@@ -3,7 +3,8 @@ $(document).ready(function () {
     var itemsDiv = ('.MultiCarousel-inner');
     var itemWidth = "";
 
-    $('.leftLst, .rightLst').click(function () {
+    $('.leftLst, .rightLst').click(function () { 
+        console.log('working');
         var condition = $(this).hasClass("leftLst");
         if (condition)
             click(0, this);
@@ -13,7 +14,8 @@ $(document).ready(function () {
 
     ResCarouselSize();
 
-
+      
+   
 
 
     $(window).resize(function () {
@@ -103,4 +105,4 @@ $(document).ready(function () {
         ResCarousel(ell, Parent, slide);
     }
 
-});
+}); 
