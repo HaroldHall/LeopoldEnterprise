@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');  
 var mongoose = require('mongoose'); 
 var db_url = process.env.MONGOHQ_URL ||"mongodb+srv://haroldhall:Dobmay71997@cluster0.qbsvl.mongodb.net/Products?retryWrites=true&w=majority";
-mongoose.connect(db_url,{useNewUrlParser: true  ,useUnifiedTopology:true});
+mongoose.connect(db_url,{useNewUrlParser: true });
 var productRouter= require('./routes/products')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users'); 
